@@ -1,0 +1,113 @@
+body {
+  height: 100vh;
+  background: linear-gradient(to top, #dbdbd2 90%, #009688 90%);
+}
+
+#contact-structure,
+#message-structure {
+  height: 90vh;
+  /* Debug */
+  border: 2px solid black;
+  background-color: white;
+}
+
+/****************************************
+*****   LEFT BLOCK (CONTATTI) ****** 
+ ****************************************/
+
+/** Header User  */
+.header-user {
+  height: 10%;
+  /*! debug */
+  border: 2px dashed red;
+}
+
+.header-user div[class*="col"] {
+  /*! Debug */
+  border: 2px dashed blue;
+}
+
+/** Notification Area  */
+.notification {
+  height: 10%;
+  /*! Debug */
+  border: 2px dashed red;
+}
+
+/** Input search contact  */
+.input-search-contact {
+  height: 5%;
+  /*! Debug */
+  border: 2px dashed red;
+}
+
+/** Contact Block  */
+.contact-block {
+  height: 75%;
+  overflow: auto;
+  /*! debug */
+  border: 2px dashed red;
+}
+
+.contact-card div[class*="col"] {
+  /*! Debug */
+  border: 2px dashed blue;
+}
+
+/* ***************************************
+*****      RIGHT BLOCK (CHAT)     ****** 
+ ****************************************/
+
+/**Header Message chat */
+
+.header-message {
+  height: 10%;
+  /*! debug */
+  border: 2px dashed red;
+}
+
+.header-message div[class*="col"] {
+  /*! Debug */
+  border: 2px dashed blue;
+}
+
+/** Text area chat */
+
+.text-area-message {
+  height: 80%;
+  overflow: auto;
+  /*! debug */
+  border: 2px dashed red;
+}
+
+/*! */
+/*TODO: Sistemare le colonne (dei messaggi)al momento prendono tutta la larghezza*/
+.message-sent {
+  background-color: #d5f9ba;
+  padding: 10px 60px 10px 7px;
+  border-radius: 8px;
+  /*! Debug */
+  text-align: end;
+  border: 2px dashed seagreen;
+}
+
+.message-received {
+  background-color: white;
+  padding: 10px 60px 10px 7px;
+  border-radius: 8px;
+  /*! Debug */
+  border: 2px dashed seagreen;
+}
+
+/** Bottom input message chat  */
+
+.bottom-input-message {
+  height: 10%;
+  /*! debug */
+  border: 2px dashed red;
+}
+
+.bottom-input-message div[class*="col"] {
+  /*! Debug */
+  border: 2px dashed blue;
+}

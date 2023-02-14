@@ -75,12 +75,13 @@
 					<!-- CONTACT BLOCK -->
 					<div class="contact-block row flex-column">
 
-						<div class="contact-card d-flex">
+						<!--Creato un ciclo che contatto IN lista contatti e stampa contatto.nome -->
+						<div v-for="contact in contacts" class="contact-card d-flex">
 							<div class="col">
 								IMG contact
 							</div>
 							<div class="col">
-								Name contact
+								<p>{{contact.name}}</p>
 							</div>
 						</div>
 

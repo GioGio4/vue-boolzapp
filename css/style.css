@@ -49,9 +49,19 @@ body {
   border: 2px dashed red;
 }
 
+.contact-card {
+  cursor: pointer;
+}
+
 .contact-card div[class*="col"] {
   /*! Debug */
   border: 2px dashed blue;
+}
+
+/*TODO  Controllare grandezza delle immagini  */
+.contact-card img {
+  max-height: 70px;
+  border-radius: 50%;
 }
 
 /* ***************************************

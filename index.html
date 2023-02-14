@@ -73,12 +73,15 @@
 					</div>
 
 					<!-- CONTACT BLOCK -->
-					<div class="contact-block row flex-column">
+					<div class="contact-block row">
 
-						<!--Creato un ciclo che contatto IN lista contatti e stampa contatto.nome -->
-						<div v-for="contact in contacts" class="contact-card d-flex">
-							<div class="col">
-								IMG contact
+						<!--Creato un ciclo che ritorna (contatto,indice)
+						IN lista contatti e stampa contatto.nome -->
+						<!--Intercettato il CLICK su una scheda (fa ritornare l'indice cliccato)  -->
+						<div @click="switchToChat(index)" v-for="(contact,index) in contacts"
+							class="contact-card col-12 d-flex">
+							<div class="col-auto">
+								<img :src="'./img/avatar'+contact.avatar+'.jpg'" alt="">
 							</div>
 							<div class="col">
 								<p>{{contact.name}}</p>
@@ -110,10 +113,11 @@
 
 							<!-- Message row -->
 							<div class="row row-cols-1">
-								<div class="col message-sent">
-									Messaggio Inviato
+
+								<div v-for="message in contacts[activeUser].messages" class="col"
+									:class="{ 'message-sent': message.status === 'sent', 'message-received': message.status === 'received' }">
+									{{message.message}}
 								</div>
-								<div class="col message-received">Messaggio Ricevuto</div>
 
 							</div>
 

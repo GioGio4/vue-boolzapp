@@ -166,7 +166,13 @@ createApp({
           ],
         },
       ],
+
+      activeUser: 0,
     };
   },
-  methods: {},
+  methods: {
+    switchToChat(index) {
+      this.activeUser = index;
+    },
+  },
 }).mount("#root");

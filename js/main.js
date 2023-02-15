@@ -168,11 +168,31 @@ createApp({
       ],
 
       activeUser: 0,
+      newMessageSent: { message: "", status: "sent" },
+      replyMessage: { message: "ok", status: "received" },
     };
   },
   methods: {
     switchToChat(index) {
       this.activeUser = index;
+    },
+
+    addNewMessage(activeUser) {
+      const newMessageSent = {
+        message: this.newMessageSent.message,
+        status: "sent",
+      };
+      this.contacts[activeUser].messages.push(newMessageSent);
+      // console.log(newMessageSent);
+      // console.log(activeUser);
+      // console.table(this.contacts);
+    },
+
+    automaticReply(activeUser) {
+      setTimeout(() => {
+        const replyMessage = { message: "ok", status: "received" };
+        this.contacts[activeUser].messages.push(replyMessage);
+      }, 1000);
     },
   },
 }).mount("#root");

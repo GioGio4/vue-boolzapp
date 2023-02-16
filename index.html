@@ -30,25 +30,27 @@
     <script type="text/javascript" src="./js/main.js" defer></script>
 </head>
 
-<body>
+<body class="d-flex justify-content-center align-items-center">
     <div id="root">
-        <div class="container">
+        <div class="container-fluid">
 
-            <div class="row my-5">
+            <div class="application-row row">
 
                 <!-- LEFT BLOCK (CONTATTI) -->
                 <div id="contact-structure" class="col-4">
 
                     <!-- HEADER USER -->
-                    <div class="header-user row">
-                        <div class=" col-2">
-                            IMG user
+                    <div class="header-user row align-items-center">
+                        <div class=" col-auto">
+                            <img src="./img/avatar_io.jpg" alt="avatar">
                         </div>
-                        <div class="col">
-                            name
+                        <div class="col p-0">
+                            <p class="m-0">Sofia</p>
                         </div>
-                        <div class="col">
-                            icon
+                        <div class="col-5 text-end">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
 
 
@@ -56,20 +58,28 @@
 
                     <!-- NOTIFICATION AREA -->
                     <div class="row notification">
-                        <div class="col-12 ">
-                            NOTIFICHE DESKTOP
+                        <div class="col-12 d-flex align-items-center ">
+                            <i class="fa-solid fa-bell-slash"></i>
+                            <div>
+                                <p class="m-0">Ricevi notifiche di nuovi messaggi</p>
+                                <small>Attiva notifiche Desktop</small>
+                            </div>
                         </div>
                     </div>
 
                     <!-- INPUT SEARCH CONTACT -->
                     <div class="row input-search-contact">
-                        <div class="col-12 ">
-                            <div class="input-group mb-3">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon1">Icon</button>
-                                <input type="text" class="form-control" placeholder=""
-                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <div class="col-12">
+
+                            <div class="input-group my-2 ">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"> <i
+                                        class="fa-solid fa-magnifying-glass"></i></button>
+                                <input v-model="searchContact" @keyup="contactSearch()" type="text" class="form-control"
+                                    placeholder="Cerca un contatto" aria-label="Example text with button addon"
+                                    aria-describedby="button-addon1">
                             </div>
                         </div>
+
                     </div>
 
                     <!-- CONTACT BLOCK -->
@@ -79,12 +89,17 @@
 						IN lista contatti e stampa contatto.nome -->
                         <!--Intercettato il CLICK su una scheda (fa ritornare l'indice cliccato)  -->
                         <div @click="switchToChat(index)" v-for="(contact,index) in contacts"
-                            class="contact-card col-12 d-flex">
+                            class="contact-card col-12 d-flex align-items-center py-2"
+                            :class="activeUser == index ? 'active-contact':''">
                             <div class="col-auto">
                                 <img :src="'./img/avatar'+contact.avatar+'.jpg'" alt="">
                             </div>
                             <div class="col">
-                                <p>{{contact.name}}</p>
+                                <p class="m-0">{{contact.name}}</p>
+                                <small>Ultimo messaggio ricevuto</small>
+                            </div>
+                            <div class="col-2 align-self-start text-end">
+                                <small>15:30</small>
                             </div>
                         </div>
 
@@ -95,15 +110,18 @@
                 <div id="message-structure" class="col-8 ">
 
                     <!-- HEADER MESSAGGE CHAT -->
-                    <div class="header-message row">
-                        <div class=" col-2">
+                    <div class="header-message row align-items-center">
+                        <div class=" col-auto">
                             <img :src="'./img/avatar'+ contacts[activeUser].avatar +'.jpg'" alt="">
                         </div>
-                        <div class="col">
-                            name,access contact
+                        <div class="col p-0">
+                            <p class="m-0">{{contacts[activeUser].name}}</p>
+                            <small>Ultimo accesso oggi alle 12:00</small>
                         </div>
-                        <div class="col-2">
-                            icon
+                        <div class="col-5 text-end">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
 
@@ -112,11 +130,13 @@
                         <div class="col-12 p-5">
 
                             <!-- Message row -->
-                            <div class="row row-cols-1">
+                            <div class="d-flex flex-column ">
 
-                                <div v-for="message in contacts[activeUser].messages" class="col"
-                                    :class="{ 'message-sent': message.status === 'sent', 'message-received': message.status === 'received' }">
-                                    {{message.message}}
+                                <div v-for="message in contacts[activeUser].messages"
+                                    :class="{ 'message-sent': message.status === 'sent', 'message-received': message.status === 'received' }"
+                                    class="my-2">
+                                    <p class="m-0">{{message.message}}</p>
+                                    <small>15:30</small>
                                 </div>
 
                             </div>
@@ -125,13 +145,13 @@
                     </div>
 
                     <!-- BOTTOM INPUT MESSAGE CHAT -->
-                    <div class="bottom-input-message row justify-content-between ">
+                    <div class="bottom-input-message row justify-content-evenly align-items-center ">
                         <div class=" col-1">
-                            icon
+                            <i class="fa-regular fa-face-smile"></i>
                         </div>
 
                         <div class="col-9">
-                            <div class="input-group mb-3">
+                            <div class="input-group ">
                                 <!-- // ! DA RIVEDERE -->
                                 <input @keyup.enter="addNewMessage(activeUser);automaticReply(activeUser)"
                                     v-model="newMessageSent.message" type="text" class="form-control"
@@ -141,7 +161,7 @@
                         </div>
 
                         <div class="col-1">
-                            icon
+                            <i class="fa-solid fa-microphone"></i>
                         </div>
                     </div>
 

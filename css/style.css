@@ -6,62 +6,69 @@ body {
 #contact-structure,
 #message-structure {
   height: 90vh;
-  /* Debug */
-  border: 2px solid black;
   background-color: white;
 }
 
+/*TODO  Controllare grandezza delle immagini  */
+img {
+  max-height: 50px;
+  border-radius: 50%;
+}
+
+i {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  color: #b1b1b1;
+  cursor: pointer;
+}
+
+.application-row {
+  max-width: 1500px;
+}
 /****************************************
 *****   LEFT BLOCK (CONTATTI) ****** 
  ****************************************/
 
 /** Header User  */
 .header-user {
-  height: 10%;
-  /*! debug */
-  border: 2px dashed red;
-}
-
-.header-user div[class*="col"] {
-  /*! Debug */
-  border: 2px dashed blue;
+  height: 7%;
+  background-color: #eaeaea;
 }
 
 /** Notification Area  */
 .notification {
-  height: 10%;
-  /*! Debug */
-  border: 2px dashed red;
+  height: 8%;
+  background-color: #8edafc;
 }
 
+.notification i {
+  width: 50px;
+  height: 50px;
+  color: #8edafc;
+  background-color: white;
+  border-radius: 50%;
+  padding: 10px;
+}
 /** Input search contact  */
 .input-search-contact {
   height: 5%;
-  /*! Debug */
-  border: 2px dashed red;
+  background-color: #eaeaea;
 }
 
 /** Contact Block  */
 .contact-block {
-  height: 75%;
+  max-height: 80%;
   overflow: auto;
-  /*! debug */
-  border: 2px dashed red;
+}
+
+.contact-card.active-contact {
+  background-color: #e9ebeb;
 }
 
 .contact-card {
+  background-color: #ffffff;
   cursor: pointer;
-}
-
-.contact-card div[class*="col"] {
-  /*! Debug */
-  border: 2px dashed blue;
-}
-
-/*TODO  Controllare grandezza delle immagini  */
-.contact-card img {
-  max-height: 70px;
-  border-radius: 50%;
+  border-top: 1px solid rgba(151, 142, 142, 0.702);
 }
 
 /* ***************************************
@@ -71,53 +78,40 @@ body {
 /**Header Message chat */
 
 .header-message {
-  height: 10%;
-  /*! debug */
-  border: 2px dashed red;
-}
-
-.header-message div[class*="col"] {
-  /*! Debug */
-  border: 2px dashed blue;
+  height: 7%;
+  background-color: #eaeaea;
+  border-left: 1px solid rgba(151, 142, 142, 0.702);
 }
 
 /** Text area chat */
 
 .text-area-message {
-  height: 80%;
+  height: 86%;
   overflow: auto;
-  /*! debug */
-  border: 2px dashed red;
+  background-image: url(../img/mine.jpg);
 }
 
 /*! */
 /*TODO: Sistemare le colonne (dei messaggi)al momento prendono tutta la larghezza*/
 .message-sent {
   background-color: #d5f9ba;
-  padding: 10px 60px 10px 7px;
+  max-width: 70%;
+  padding: 7px 60px 7px 7px;
   border-radius: 8px;
-  /*! Debug */
-  text-align: end;
-  border: 2px dashed seagreen;
+  align-self: flex-end;
 }
 
 .message-received {
   background-color: white;
-  padding: 10px 60px 10px 7px;
+  padding: 7px 60px 7px 7px;
   border-radius: 8px;
-  /*! Debug */
-  border: 2px dashed seagreen;
+  align-self: self-start;
 }
 
 /** Bottom input message chat  */
 
 .bottom-input-message {
-  height: 10%;
-  /*! debug */
-  border: 2px dashed red;
-}
-
-.bottom-input-message div[class*="col"] {
-  /*! Debug */
-  border: 2px dashed blue;
+  height: 7%;
+  border: 1px solid rgba(151, 142, 142, 0.702);
+  background-color: #f3eeea;
 }

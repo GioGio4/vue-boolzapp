@@ -356,10 +356,13 @@ createApp({
 
     // ! DA RIVEDERE STRUTTURA PER RICERCA UTENTE DA INPUT (INPUT SEARCH CONTACT)
     contactSearch() {
-      const searchContact = this.searchContact;
-
-      // console.log(contacts);
-      console.log(this.contacts[0].name.includes(searchContact));
+      for (let i = 0; i < this.contacts.length; i++) {
+        if (this.contacts[i].name.includes(this.searchContact)) {
+          this.contacts[i].visible = true;
+        } else {
+          this.contacts[i].visible = false;
+        }
+      }
     },
   },
 }).mount("#root");

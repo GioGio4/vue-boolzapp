@@ -23,7 +23,8 @@
     <link rel="stylesheet" href="./css/style.css">
 
     <!-- VUE JS -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.min.js" defer></script>
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
 
 
     <!-- MAIN JS -->
@@ -90,7 +91,7 @@
                         <!--Intercettato il CLICK su una scheda (fa ritornare l'indice cliccato)  -->
                         <div @click="switchToChat(index)" v-for="(contact,index) in contacts"
                             class="contact-card col-12 d-flex align-items-center py-2"
-                            :class="activeUser == index ? 'active-contact':''">
+                            :class="activeUser == index ? 'active-contact':'', $contact.visible == true ? '':'d-none'">
                             <div class="col-auto">
                                 <img :src="'./img/avatar'+contact.avatar+'.jpg'" alt="">
                             </div>
@@ -152,7 +153,7 @@
 
                         <div class="col-9">
                             <div class="input-group ">
-                                <!-- // ! DA RIVEDERE -->
+
                                 <input @keyup.enter="addNewMessage(activeUser);automaticReply(activeUser)"
                                     v-model="newMessageSent.message" type="text" class="form-control"
                                     placeholder="Scrivi un messaggio" aria-label="Scrivi un messaggio"
